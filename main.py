@@ -46,7 +46,7 @@ uploaded_file = st.file_uploader("Choose a file:")
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     cap = np.array(image)
-    cv2.imwrite('temp.jpg', cv2.cvtColor(cap, cv2.COLOR_RGB2BGR))
+    cv2.imwrite('temp.jpg', cv2.cvtColor(cap, cv2.COLOR_BGR2GRAY))
     cap = cv2.imread('temp.jpg')
 
     face_txt_path = r'C:\Users\ACER\Desktop\Age_gender_prediction-main\Age_gender_prediction-main\opencv_face_detector.pbtxt'
@@ -61,9 +61,8 @@ if uploaded_file is not None:
     gender_model_path = r'C:\Users\ACER\Desktop\Age_gender_prediction-main\Age_gender_prediction-main\gender_net.caffemodel'
 
     MODEL_MEAN_VALUES = (78.4263377603, 87.7689143744, 114.895847746)
-    age_classes = ['(0-2)', '(4-6)', '(8-12)', '(15-20)',
-                   '(25-32)', '(38-43)', '(48-53)', '(60-100)']
-    gender_classes = ['Male', 'Female']
+    age_classes = ['age: ~1-4', 'age: ~5-10', 'age: ~12-16', 'age: ~17-21', 'age: ~24-28', 'age: ~33-40', 'age: ~39-45', 'age: >50']
+    gender_classes = ['Gender: Male', 'Gender: Female']
 
     age_net = cv2.dnn.readNet(age_model_path, age_txt_path)
     gender_net = cv2.dnn.readNet(gender_model_path, gender_txt_path)
