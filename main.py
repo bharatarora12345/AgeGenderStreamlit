@@ -69,7 +69,7 @@ if uploaded_file is not None:
     face_net = cv2.dnn.readNet(face_model_path, face_txt_path)
     image = Image.open(uploaded_file)
     cap = np.array(image)
-    cv2.imwrite('temp.jpg', cv2.cvtColor(cap, cv2.COLOR_RGB2BGR))
+    cv2.imwrite('temp.jpg', cv2.cvtColor(cap, cv2.COLOR_BGR2GRAY))
     cap = cv2.imread('temp.jpg')
 
     padding = 20
