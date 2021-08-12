@@ -151,11 +151,11 @@ if select_Process == "Real time camera":
 
                 cv2.putText(resultImg, f'{gender}, {age}', (faceBox[0], faceBox[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8,
                             (0, 255, 255), 2, cv2.LINE_AA)
-                cv2.imshow("Detecting age and gender", resultImg)
+        cv2.imshow("Detecting age and gender", resultImg)
                 # if cv2.waitKey(1) & 0xFF == ord('q'):
                 #     start_Camera == "STOP"
                 #     break
-                if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q'):
                     # when you will enter the q it will stop the process of detection
                     start_Camera == "STOP"
                     break
